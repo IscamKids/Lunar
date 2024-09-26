@@ -10,6 +10,12 @@ config_version=5
 
 [application]
 
-config/name="Platformer"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/name="Lunar"
+run/main_scene="res://tile_map.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=0
