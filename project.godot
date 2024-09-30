@@ -13,6 +13,8 @@ config_version=5
 config/name="Lunar"
 run/main_scene="res://tile_map.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0.804708, 0, 0.406165, 1)
+boot_splash/image="res://LUNARART/PlayerTextures/pixil-frame-0.png"
 config/icon="res://icon.svg"
 
 [display]
