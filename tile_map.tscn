@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://da44gle7yrn38"]
+[gd_scene load_steps=35 format=4 uid="uid://da44gle7yrn38"]
 
 [ext_resource type="Texture2D" uid="uid://c35dn6n5j55sv" path="res://Tilesets/brackeys_platformer_assets/sprites/coin.png" id="1_u5kuq"]
 [ext_resource type="Texture2D" uid="uid://nhkf1ykdr3f0" path="res://Tilesets/brackeys_platformer_assets/sprites/fruit.png" id="2_707sv"]
@@ -12,10 +12,7 @@
 [ext_resource type="Script" path="res://pixil_frame_0.gd" id="10_huaav"]
 [ext_resource type="FontFile" uid="uid://b4m7mqhvi2x1" path="res://Tilesets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="11_okaf5"]
 [ext_resource type="Script" path="res://label.gd" id="11_ysilh"]
-[ext_resource type="Texture2D" uid="uid://bwg5dp4sg7tpg" path="res://LUNARART/PlayerTextures/jimmyspritemap.png" id="13_47phm"]
 [ext_resource type="Script" path="res://mob.gd" id="13_m0aow"]
-[ext_resource type="Script" path="res://energy_drink.gd" id="15_fmrd8"]
-[ext_resource type="Texture2D" uid="uid://clw4eo4ib66eb" path="res://LUNARART/Items/ENERGY DRINK.png" id="16_7sm24"]
 [ext_resource type="Script" path="res://node_2d.gd" id="17_d0ipp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_or5ts"]
@@ -837,9 +834,6 @@ height = 42.0
 [sub_resource type="Theme" id="Theme_n4xaw"]
 default_font = ExtResource("11_okaf5")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fy00v"]
-size = Vector2(50.4763, 20)
-
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_bst5u")
 format = 2
@@ -971,30 +965,9 @@ offset_bottom = -265.0
 theme = SubResource("Theme_n4xaw")
 script = ExtResource("11_ysilh")
 
-[node name="Polygon2D" type="Polygon2D" parent="jimmyBody"]
-texture = ExtResource("13_47phm")
-polygon = PackedVector2Array(24.7864, 36.7866, 32.2415, 36.7859, 32.4722, 59.5043, 24.511, 59.5392)
-uv = PackedVector2Array(24.7864, 36.7866, 32.2415, 36.7859, 32.4722, 59.5043, 24.511, 59.5392)
-
 [node name="Mob" type="RigidBody2D" parent="."]
 script = ExtResource("13_m0aow")
-
-[node name="energy drink" type="Area2D" parent="."]
-position = Vector2(216, -8)
-script = ExtResource("15_fmrd8")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="energy drink"]
-position = Vector2(4, -7)
-rotation = 2.1513
-shape = SubResource("RectangleShape2D_fy00v")
-
-[node name="EnergyDrink" type="Sprite2D" parent="energy drink"]
-position = Vector2(8, -16)
-texture = ExtResource("16_7sm24")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(224, -24)
 script = ExtResource("17_d0ipp")
-
-[connection signal="body_entered" from="energy drink" to="jimmyBody" method="_on_energy_drink_body_entered"]
-[connection signal="body_entered" from="energy drink" to="energy drink" method="_on_body_entered"]
